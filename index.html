@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissor</title>
+  </head>
+  <body>
+    <script>
+      var userChoice;
+      do {
+        userChoice = prompt("Do you choose ROCK, PAPER or SCISSORS?");
+      } while (
+        userChoice != "rock" &&
+        userChoice != "paper" &&
+        userChoice != "scissors"
+      );
+      var computerChoice = Math.random();
+
+      // Computer makes a choice
+      if (computerChoice <= 0.33) {
+        computerChoice = "rock";
+      } else if (computerChoice <= 0.67) {
+        computerChoice = "paper";
+      } else {
+        computerChoice = "scissors";
+      }
+      var choice1 = userChoice;
+      var choice2 = computerChoice;
+
+      // c. A compare function will determine who wins
+      function compare(choice1, choice2) {
+        if (choice1 === choice2) {
+          alert("A tie!");
+        } else if (choice1 === "rock") {
+          if (choice2 === "paper") {
+            alert("Computer chose PAPER, you LOSE!");
+          } else alert("Computer chose SCISSORS, you WIN!");
+        } else if (choice1 === "paper") {
+          if (choice2 === "scissors") {
+            alert("Computer chose SCISSORS, you LOSE!");
+          } else alert("Computer chose ROCK, you WIN!");
+        } else if (choice1 === "scissors") {
+          if (choice2 === "rock") {
+            alert("Computer chose ROCK, you lose!");
+          } else alert("Computer chose PAPER, you WIN!");
+        }
+      }
+      compare(userChoice, computerChoice);
+      console.log("You chose:", choice1, "||", "Computer chose:", choice2);
+    </script>
+  </body>
+</html>
