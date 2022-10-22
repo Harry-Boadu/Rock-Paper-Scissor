@@ -2,53 +2,50 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width,
+				initial-scale=1.0"
+    />
+    <link rel="stylesheet" href="./styles.css" />
     <title>Rock Paper Scissor</title>
   </head>
   <body>
-    <script>
-      var userChoice;
-      do {
-        userChoice = prompt("Do you choose ROCK, PAPER or SCISSORS?");
-      } while (
-        userChoice != "rock" &&
-        userChoice != "paper" &&
-        userChoice != "scissors"
-      );
-      var computerChoice = Math.random();
+    <section class="game">
+      <!--Title -->
+      <div class="title">Rock Paper Scissor</div>
 
-      // Computer makes a choice
-      if (computerChoice <= 0.33) {
-        computerChoice = "rock";
-      } else if (computerChoice <= 0.67) {
-        computerChoice = "paper";
-      } else {
-        computerChoice = "scissors";
-      }
-      var choice1 = userChoice;
-      var choice2 = computerChoice;
+      <!--Display Score of player and computer -->
+      <div class="score">
+        <div class="playerScore">
+          <h2>Player</h2>
+          <p class="p-count count">0</p>
+        </div>
+        <div class="computerScore">
+          <h2>Computer</h2>
+          <p class="c-count count">0</p>
+        </div>
+      </div>
 
-      // c. A compare function will determine who wins
-      function compare(choice1, choice2) {
-        if (choice1 === choice2) {
-          alert("A tie!");
-        } else if (choice1 === "rock") {
-          if (choice2 === "paper") {
-            alert("Computer chose PAPER, you LOSE!");
-          } else alert("Computer chose SCISSORS, you WIN!");
-        } else if (choice1 === "paper") {
-          if (choice2 === "scissors") {
-            alert("Computer chose SCISSORS, you LOSE!");
-          } else alert("Computer chose ROCK, you WIN!");
-        } else if (choice1 === "scissors") {
-          if (choice2 === "rock") {
-            alert("Computer chose ROCK, you lose!");
-          } else alert("Computer chose PAPER, you WIN!");
-        }
-      }
-      compare(userChoice, computerChoice);
-      console.log("You chose:", choice1, "||", "Computer chose:", choice2);
-    </script>
+      <div class="move">Choose your move</div>
+
+      <!--Number of moves left before game ends -->
+      <div class="movesleft">Moves Left: 10</div>
+
+      <!--Options available to player to play game -->
+      <div class="options">
+        <button class="rock">Rock</button>
+        <button class="paper">Paper</button>
+        <button class="scissor">Scissors</button>
+      </div>
+
+      <!--Final result of game -->
+      <div class="result"></div>
+
+      <!--Reload the game -->
+      <button class="reload"></button>
+    </section>
+
+    <script src="./app.js"></script>
   </body>
 </html>
